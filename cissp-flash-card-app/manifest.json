@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "CISSP StudyDeck",
+  "version": "1.0.0",
+  "description": "Offline CISSP flash card study tool with spaced repetition, scenario cards, and collaborative deck merging.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    },
+    "default_title": "CISSP StudyDeck"
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  }
+}
