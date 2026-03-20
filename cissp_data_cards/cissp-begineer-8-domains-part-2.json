@@ -1,0 +1,512 @@
+[
+  {
+    "term": "Security Policy",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A high-level document that defines management's intent for protecting organizational assets and guiding security decisions.",
+    "examTip": "Policies are mandatory and set direction; standards, guidelines, and procedures flow from them.",
+    "relatedCards": ["Standard", "Guideline", "Procedure", "Due Care"],
+    "tags": ["governance", "documentation", "foundations"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Standard",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A mandatory requirement that specifies how a security policy will be implemented in a uniform way.",
+    "examTip": "Standards are compulsory; guidelines are recommended. Both support policies.",
+    "relatedCards": ["Security Policy", "Guideline", "Procedure", "Baseline"],
+    "tags": ["governance", "documentation", "compliance"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Guideline",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A recommended action or best practice that supports a policy but is not mandatory.",
+    "examTip": "Guidelines offer flexibility; standards do not. Know the difference for the exam.",
+    "relatedCards": ["Security Policy", "Standard", "Procedure", "Baseline"],
+    "tags": ["governance", "documentation", "best-practices"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Procedure",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A detailed, step-by-step instruction that describes how to implement a specific security task or process.",
+    "examTip": "Procedures are the most granular governance document; they tell someone exactly what to do.",
+    "relatedCards": ["Security Policy", "Standard", "Guideline", "Baseline"],
+    "tags": ["governance", "documentation", "operations"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Risk Acceptance",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A risk treatment option where management acknowledges a risk and chooses not to mitigate it, often because the cost of mitigation exceeds the potential loss.",
+    "examTip": "Risk acceptance must be a conscious, documented decision by authorized management.",
+    "relatedCards": ["Risk Treatment", "Risk Mitigation", "Risk Transfer", "Risk Avoidance"],
+    "tags": ["risk", "decision-making", "management"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Risk Transfer",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A risk treatment option where the financial impact of a risk is shifted to a third party, such as through insurance or outsourcing.",
+    "examTip": "Buying cyber insurance is a classic exam example of risk transfer.",
+    "relatedCards": ["Risk Treatment", "Risk Acceptance", "Risk Mitigation", "Risk Avoidance"],
+    "tags": ["risk", "decision-making", "insurance"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Annualized Loss Expectancy (ALE)",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The expected monetary loss from a specific threat over one year, calculated as SLE multiplied by ARO.",
+    "examTip": "ALE = SLE × ARO. Use ALE to justify the cost of a countermeasure.",
+    "relatedCards": ["Single Loss Expectancy (SLE)", "Annualized Rate of Occurrence (ARO)", "Risk Assessment"],
+    "tags": ["risk", "quantitative", "metrics"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Single Loss Expectancy (SLE)",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The expected monetary loss each time a specific threat event occurs, calculated as asset value multiplied by exposure factor.",
+    "examTip": "SLE = Asset Value × Exposure Factor (EF). It represents the cost of one incident.",
+    "relatedCards": ["Annualized Loss Expectancy (ALE)", "Annualized Rate of Occurrence (ARO)", "Exposure Factor"],
+    "tags": ["risk", "quantitative", "metrics"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Annualized Rate of Occurrence (ARO)",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The estimated frequency at which a specific threat is expected to occur within a one-year period.",
+    "examTip": "ARO of 0.5 means the event is expected once every two years.",
+    "relatedCards": ["Annualized Loss Expectancy (ALE)", "Single Loss Expectancy (SLE)", "Risk Assessment"],
+    "tags": ["risk", "quantitative", "frequency"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Job Rotation",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "An administrative control that moves personnel between roles to reduce fraud opportunity and identify irregularities.",
+    "examTip": "Job rotation is both a detective and preventive control; it exposes hidden fraud when someone new takes over.",
+    "relatedCards": ["Separation of Duties", "Mandatory Vacation", "Least Privilege", "Administrative Controls"],
+    "tags": ["administrative-controls", "fraud-prevention", "personnel"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Mandatory Vacation",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A policy requiring employees to take consecutive time off so someone else performs their duties, helping detect fraud or misuse.",
+    "examTip": "Mandatory vacation is a detective control; it works similarly to job rotation in exposing irregularities.",
+    "relatedCards": ["Job Rotation", "Separation of Duties", "Administrative Controls", "Fraud Prevention"],
+    "tags": ["administrative-controls", "fraud-prevention", "personnel"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Asset Valuation",
+    "domain": "Asset Security",
+    "type": "definition",
+    "answer": "The process of determining the worth of an asset, including tangible value, replacement cost, and the impact of its loss.",
+    "examTip": "Asset valuation drives classification decisions and helps justify security spending.",
+    "relatedCards": ["Data Classification", "Risk Assessment", "Single Loss Expectancy (SLE)", "Data Owner"],
+    "tags": ["asset-security", "valuation", "governance"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Data Remanence",
+    "domain": "Asset Security",
+    "type": "definition",
+    "answer": "The residual representation of data that remains on storage media after attempts to erase or delete it.",
+    "examTip": "Degaussing, overwriting, and physical destruction are methods to address data remanence.",
+    "relatedCards": ["Data Sanitization", "Degaussing", "Data Lifecycle", "Media Disposal"],
+    "tags": ["asset-security", "data-protection", "disposal"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Data Sanitization",
+    "domain": "Asset Security",
+    "type": "definition",
+    "answer": "The process of permanently and irreversibly removing data from storage media so it cannot be recovered.",
+    "examTip": "Sanitization methods include clearing, purging, and destroying, each with different assurance levels.",
+    "relatedCards": ["Data Remanence", "Degaussing", "Cryptographic Erasure", "Media Disposal"],
+    "tags": ["asset-security", "data-protection", "disposal"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Data at Rest",
+    "domain": "Asset Security",
+    "type": "definition",
+    "answer": "Data that is stored on a device or medium and is not actively being transmitted or processed.",
+    "examTip": "Full disk encryption and database encryption are common protections for data at rest.",
+    "relatedCards": ["Data in Transit", "Data in Use", "Encryption", "Full Disk Encryption"],
+    "tags": ["asset-security", "data-states", "encryption"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Data in Transit",
+    "domain": "Asset Security",
+    "type": "definition",
+    "answer": "Data that is actively moving across a network or communication channel.",
+    "examTip": "TLS, VPNs, and IPsec are common controls for protecting data in transit.",
+    "relatedCards": ["Data at Rest", "Data in Use", "Transport Layer Security (TLS)", "Virtual Private Network (VPN)"],
+    "tags": ["asset-security", "data-states", "network-security"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Data in Use",
+    "domain": "Asset Security",
+    "type": "definition",
+    "answer": "Data that is actively being processed or accessed in memory by an application or user.",
+    "examTip": "Data in use is the hardest state to protect; controls include memory encryption and process isolation.",
+    "relatedCards": ["Data at Rest", "Data in Transit", "Memory Protection", "Encryption"],
+    "tags": ["asset-security", "data-states", "processing"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Secure Software Development Lifecycle (SSDLC)",
+    "domain": "Software Development Security",
+    "type": "definition",
+    "answer": "A framework that integrates security activities into every phase of software development, from requirements through deployment and maintenance.",
+    "examTip": "Security should begin at requirements gathering, not be added after development is complete.",
+    "relatedCards": ["Code Review", "Static Analysis", "Threat Modeling", "Input Validation"],
+    "tags": ["software-security", "development", "lifecycle"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Input Validation",
+    "domain": "Software Development Security",
+    "type": "definition",
+    "answer": "The practice of verifying that user-supplied data is correct, complete, and safe before processing it.",
+    "examTip": "Input validation is the primary defense against injection attacks like SQL injection and XSS.",
+    "relatedCards": ["SQL Injection", "Cross-Site Scripting (XSS)", "Secure Software Development Lifecycle (SSDLC)", "Buffer Overflow"],
+    "tags": ["software-security", "secure-coding", "defense"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "SQL Injection",
+    "domain": "Software Development Security",
+    "type": "definition",
+    "answer": "An attack that inserts malicious SQL statements into an application's database query through unvalidated input.",
+    "examTip": "Parameterized queries and input validation are the best defenses against SQL injection.",
+    "relatedCards": ["Input Validation", "Cross-Site Scripting (XSS)", "Database Security", "Secure Coding"],
+    "tags": ["software-security", "attacks", "injection"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Cross-Site Scripting (XSS)",
+    "domain": "Software Development Security",
+    "type": "definition",
+    "answer": "An attack that injects malicious scripts into web content viewed by other users.",
+    "examTip": "Output encoding and input validation help prevent XSS attacks.",
+    "relatedCards": ["SQL Injection", "Input Validation", "Web Application Security", "Session Hijacking"],
+    "tags": ["software-security", "attacks", "web-security"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Buffer Overflow",
+    "domain": "Software Development Security",
+    "type": "definition",
+    "answer": "A vulnerability that occurs when a program writes more data to a buffer than it can hold, potentially allowing an attacker to execute arbitrary code.",
+    "examTip": "Bounds checking and using memory-safe languages help prevent buffer overflows.",
+    "relatedCards": ["Input Validation", "Memory Protection", "Secure Coding", "Exploit"],
+    "tags": ["software-security", "vulnerabilities", "memory"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Threat Modeling",
+    "domain": "Software Development Security",
+    "type": "definition",
+    "answer": "A structured process for identifying potential threats to a system and determining appropriate countermeasures during design.",
+    "examTip": "STRIDE and DREAD are well-known threat modeling methodologies for the CISSP exam.",
+    "relatedCards": ["Secure Software Development Lifecycle (SSDLC)", "Risk Assessment", "Attack Surface", "STRIDE"],
+    "tags": ["software-security", "design", "analysis"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Change Management",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "A formal process for requesting, reviewing, approving, and implementing changes to systems or configurations in a controlled manner.",
+    "examTip": "Change management prevents unauthorized or untested changes from introducing vulnerabilities.",
+    "relatedCards": ["Configuration Management", "Integrity", "Patch Management", "Security Operations"],
+    "tags": ["operations", "governance", "process"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Configuration Management",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "The process of establishing and maintaining consistent system settings, baselines, and documentation throughout the system lifecycle.",
+    "examTip": "Configuration management ensures systems remain in a known, secure state.",
+    "relatedCards": ["Change Management", "Baseline", "Patch Management", "Hardening"],
+    "tags": ["operations", "baselines", "consistency"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Patch Management",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "The process of identifying, acquiring, testing, and applying software updates to fix vulnerabilities and improve functionality.",
+    "examTip": "Patches should be tested in a non-production environment before deployment to minimize risk.",
+    "relatedCards": ["Vulnerability", "Change Management", "Configuration Management", "Vulnerability Scanning"],
+    "tags": ["operations", "maintenance", "vulnerability-management"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Incident Response",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "A structured approach to detecting, analyzing, containing, eradicating, and recovering from security incidents.",
+    "examTip": "The typical phases are preparation, detection/analysis, containment/eradication/recovery, and post-incident review.",
+    "relatedCards": ["Incident", "Forensics", "Chain of Custody", "SIEM"],
+    "tags": ["operations", "incident-management", "process"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Chain of Custody",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "The documented process of tracking evidence from collection through preservation to presentation, ensuring its integrity and admissibility.",
+    "examTip": "A break in the chain of custody can render evidence inadmissible in court.",
+    "relatedCards": ["Forensics", "Incident Response", "Evidence", "Legal Proceedings"],
+    "tags": ["operations", "forensics", "evidence"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Security Information and Event Management (SIEM)",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "A technology that aggregates and correlates log data from multiple sources to provide real-time security monitoring and alerting.",
+    "examTip": "SIEM combines SIM (information management) and SEM (event management) into one platform.",
+    "relatedCards": ["Logging", "Intrusion Detection System (IDS)", "Incident Response", "Accounting"],
+    "tags": ["operations", "monitoring", "detection"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Vulnerability Scanning",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "An automated process that identifies known vulnerabilities, misconfigurations, and missing patches on systems and networks.",
+    "examTip": "Vulnerability scans identify weaknesses; penetration tests attempt to exploit them.",
+    "relatedCards": ["Penetration Testing", "Patch Management", "Vulnerability", "Risk Assessment"],
+    "tags": ["operations", "assessment", "scanning"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Penetration Testing",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "An authorized simulated attack on a system to evaluate security defenses by attempting to exploit vulnerabilities.",
+    "examTip": "Pen tests go beyond scanning by actively exploiting flaws; always require written authorization.",
+    "relatedCards": ["Vulnerability Scanning", "Ethical Hacking", "Risk Assessment", "Exploit"],
+    "tags": ["operations", "assessment", "offensive-security"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Forensic Investigation",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "The systematic collection, examination, and analysis of digital evidence to determine what happened during a security event.",
+    "examTip": "Always preserve the original evidence by working on forensic copies, not the source media.",
+    "relatedCards": ["Chain of Custody", "Incident Response", "Evidence", "Imaging"],
+    "tags": ["operations", "forensics", "investigation"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Least Common Mechanism",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "A design principle that minimizes the sharing of mechanisms between users or processes to reduce the risk of unauthorized information flow.",
+    "examTip": "Shared resources increase risk; least common mechanism limits what is shared.",
+    "relatedCards": ["Defense in Depth", "Fail Secure", "Security Design Principles", "Isolation"],
+    "tags": ["architecture", "design-principles", "isolation"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Open Design",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "A security principle stating that a system's security should not depend on the secrecy of its design, but rather on the strength of its keys or credentials.",
+    "examTip": "Also known as Kerckhoffs' principle — assume the attacker knows the system; only the key is secret.",
+    "relatedCards": ["Encryption", "Security Design Principles", "Defense in Depth", "Key Management"],
+    "tags": ["architecture", "design-principles", "cryptography"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "IPsec",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A suite of protocols that provides authentication, integrity, and confidentiality for IP network communications at the network layer.",
+    "examTip": "IPsec operates at Layer 3 and can work in transport mode (end-to-end) or tunnel mode (gateway-to-gateway).",
+    "relatedCards": ["Virtual Private Network (VPN)", "Transport Layer Security (TLS)", "Authentication Header (AH)", "Encapsulating Security Payload (ESP)"],
+    "tags": ["network-security", "protocols", "encryption"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "OSI Model",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A seven-layer conceptual framework that standardizes how network communication functions are divided: Physical, Data Link, Network, Transport, Session, Presentation, and Application.",
+    "examTip": "Remember the layers with 'Please Do Not Throw Sausage Pizza Away' and know what operates at each layer.",
+    "relatedCards": ["TCP/IP Model", "Network Segmentation", "Firewall", "Transport Layer Security (TLS)"],
+    "tags": ["network-security", "models", "foundations"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "TCP/IP Model",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A four-layer networking model consisting of Network Access, Internet, Transport, and Application layers, used as the foundation for internet communication.",
+    "examTip": "TCP/IP is the practical model of the internet; map it to the OSI model for exam questions.",
+    "relatedCards": ["OSI Model", "IPsec", "Transport Layer Security (TLS)", "Network Segmentation"],
+    "tags": ["network-security", "models", "protocols"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "DNS (Domain Name System)",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A hierarchical system that translates human-readable domain names into IP addresses.",
+    "examTip": "DNS poisoning and DNS spoofing are common attack vectors; DNSSEC adds integrity verification.",
+    "relatedCards": ["DNSSEC", "Network Security", "Man-in-the-Middle", "IP Address"],
+    "tags": ["network-security", "protocols", "name-resolution"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Social Engineering",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The manipulation of people into performing actions or divulging confidential information through deception rather than technical means.",
+    "examTip": "Security awareness training is the primary defense against social engineering attacks.",
+    "relatedCards": ["Phishing", "Security Awareness Training", "Pretexting", "Human Factor"],
+    "tags": ["human-security", "attacks", "awareness"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Phishing",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A social engineering attack that uses deceptive emails, messages, or websites to trick individuals into revealing sensitive information.",
+    "examTip": "Spear phishing targets specific individuals; whaling targets senior executives.",
+    "relatedCards": ["Social Engineering", "Spear Phishing", "Security Awareness Training", "Email Security"],
+    "tags": ["human-security", "attacks", "email"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Security Awareness Training",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A program designed to educate employees about security policies, threats, and their responsibilities in protecting organizational assets.",
+    "examTip": "Awareness training is an administrative control and the best defense against social engineering.",
+    "relatedCards": ["Social Engineering", "Phishing", "Security Policy", "Administrative Controls"],
+    "tags": ["human-security", "training", "governance"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Physical Security Controls",
+    "domain": "Security Assessment and Testing",
+    "type": "definition",
+    "answer": "Tangible measures such as locks, fences, guards, lighting, and surveillance systems used to protect facilities and assets.",
+    "examTip": "Physical controls are the first line of defense; without them, logical controls can be bypassed.",
+    "relatedCards": ["Defense in Depth", "Access Control", "Mantrap", "CCTV"],
+    "tags": ["physical-security", "controls", "facilities"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Mantrap (Security Vestibule)",
+    "domain": "Security Assessment and Testing",
+    "type": "definition",
+    "answer": "A physical access control mechanism consisting of a small enclosed space with two interlocking doors, ensuring only one door opens at a time.",
+    "examTip": "Mantraps prevent tailgating and piggybacking into secure areas.",
+    "relatedCards": ["Physical Security Controls", "Tailgating", "Access Control", "Badge System"],
+    "tags": ["physical-security", "access-control", "facilities"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Audit",
+    "domain": "Security Assessment and Testing",
+    "type": "definition",
+    "answer": "A systematic, independent review of security controls, practices, and records to evaluate compliance and effectiveness.",
+    "examTip": "Internal audits are performed by the organization; external audits are performed by independent third parties.",
+    "relatedCards": ["Due Diligence", "Compliance", "Audit Trail", "Control Assessment"],
+    "tags": ["assessment", "governance", "compliance"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Audit Trail",
+    "domain": "Security Assessment and Testing",
+    "type": "definition",
+    "answer": "A chronological record of system activities that provides documentary evidence of the sequence of events.",
+    "examTip": "Audit trails support accountability, forensic analysis, and incident detection.",
+    "relatedCards": ["Accounting", "Logging", "SIEM", "Forensic Investigation"],
+    "tags": ["assessment", "logging", "accountability"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Control Categories",
+    "domain": "Security Assessment and Testing",
+    "type": "definition",
+    "answer": "The classification of security controls by function: preventive, detective, corrective, deterrent, compensating, and recovery.",
+    "examTip": "Know each category: preventive stops, detective finds, corrective fixes, deterrent discourages, compensating substitutes, recovery restores.",
+    "relatedCards": ["Defense in Depth", "Administrative Controls", "Technical Controls", "Physical Security Controls"],
+    "tags": ["assessment", "controls", "classification"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Technical Controls",
+    "domain": "Security Assessment and Testing",
+    "type": "definition",
+    "answer": "Security measures implemented through technology, such as firewalls, encryption, access control lists, and intrusion detection systems.",
+    "examTip": "Technical controls are also called logical controls; they are enforced by hardware or software.",
+    "relatedCards": ["Administrative Controls", "Physical Security Controls", "Control Categories", "Firewall"],
+    "tags": ["controls", "technology", "implementation"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Administrative Controls",
+    "domain": "Security Assessment and Testing",
+    "type": "definition",
+    "answer": "Security measures based on management policies, procedures, and human-oriented practices such as training, background checks, and separation of duties.",
+    "examTip": "Administrative controls are also called management or operational controls; they govern people and processes.",
+    "relatedCards": ["Technical Controls", "Physical Security Controls", "Security Policy", "Security Awareness Training"],
+    "tags": ["controls", "management", "people"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Access Control List (ACL)",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "A list of permissions attached to an object that specifies which subjects can access it and what operations they can perform.",
+    "examTip": "ACLs are used in both network devices (router ACLs) and operating systems (file permissions).",
+    "relatedCards": ["Discretionary Access Control (DAC)", "Firewall", "Authorization", "Object"],
+    "tags": ["iam", "authorization", "permissions"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Privilege Escalation",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "An attack or misconfiguration that allows a user or process to gain higher access privileges than originally authorized.",
+    "examTip": "Privilege escalation can be vertical (gaining admin rights) or horizontal (accessing another user's resources).",
+    "relatedCards": ["Least Privilege", "Access Control", "Vulnerability", "Exploit"],
+    "tags": ["iam", "attacks", "access-control"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Kerberos",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "A network authentication protocol that uses symmetric key cryptography and a trusted third-party ticket-granting system to authenticate users.",
+    "examTip": "Kerberos uses tickets, not passwords over the network; the KDC (Key Distribution Center) is central to its operation.",
+    "relatedCards": ["Single Sign-On (SSO)", "Authentication", "Ticket", "Key Distribution Center"],
+    "tags": ["iam", "authentication", "protocols"],
+    "contributor": "GPT 5.4"
+  }
+]
