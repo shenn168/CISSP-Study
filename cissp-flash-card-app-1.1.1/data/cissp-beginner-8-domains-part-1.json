@@ -1,0 +1,632 @@
+[
+  {
+    "term": "Confidentiality",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The principle that information is not disclosed to unauthorized people, entities, or processes.",
+    "examTip": "If the question focuses on preventing unauthorized disclosure, think confidentiality first.",
+    "relatedCards": ["Integrity", "Availability", "CIA Triad", "Need to Know"],
+    "tags": ["cia", "foundations", "access-control"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Integrity",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The principle that information remains accurate, complete, and protected from unauthorized modification.",
+    "examTip": "Hashing, checksums, and change control are common integrity-focused answers.",
+    "relatedCards": ["Confidentiality", "Availability", "Hashing", "Change Management"],
+    "tags": ["cia", "foundations", "data-protection"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Availability",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The principle that systems, data, and services are accessible to authorized users when needed.",
+    "examTip": "Redundancy, fault tolerance, and backups are often availability solutions.",
+    "relatedCards": ["Confidentiality", "Integrity", "Fault Tolerance", "Disaster Recovery Plan (DRP)"],
+    "tags": ["cia", "foundations", "resilience"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "CIA Triad",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A core information security model consisting of confidentiality, integrity, and availability.",
+    "examTip": "Many CISSP questions can be solved by identifying which part of the CIA triad is most affected.",
+    "relatedCards": ["Confidentiality", "Integrity", "Availability", "Security Objectives"],
+    "tags": ["cia", "foundations", "core-concepts"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Nonrepudiation",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The assurance that someone cannot deny performing an action or sending a message.",
+    "examTip": "Digital signatures are a classic nonrepudiation control on the exam.",
+    "relatedCards": ["Digital Signature", "Authentication", "Integrity", "Accountability"],
+    "tags": ["security-objectives", "cryptography", "proof"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Due Care",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The act of taking reasonable steps to protect assets, people, and operations from harm.",
+    "examTip": "Due care is about doing the right thing; policies, standards, and safeguards help show it.",
+    "relatedCards": ["Due Diligence", "Risk Management", "Policy", "Compliance"],
+    "tags": ["governance", "legal", "risk"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Due Diligence",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The process of investigating, assessing, and continuously monitoring risks and controls.",
+    "examTip": "Due diligence is ongoing and evidence-based, such as audits, reviews, and assessments.",
+    "relatedCards": ["Due Care", "Audit", "Risk Assessment", "Compliance"],
+    "tags": ["governance", "legal", "oversight"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Risk",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The potential for a threat to exploit a vulnerability and cause harm to an asset.",
+    "examTip": "Risk exists when threat, vulnerability, and asset value come together.",
+    "relatedCards": ["Threat", "Vulnerability", "Asset", "Risk Assessment"],
+    "tags": ["risk", "foundations", "analysis"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Threat",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "Any circumstance or event with the potential to negatively impact an asset.",
+    "examTip": "Threats can be human, environmental, technical, intentional, or accidental.",
+    "relatedCards": ["Risk", "Vulnerability", "Threat Actor", "Control"],
+    "tags": ["risk", "foundations", "security"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Vulnerability",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A weakness that can be exploited by a threat to compromise an asset or objective.",
+    "examTip": "A missing patch, weak process, or bad configuration are common vulnerability examples.",
+    "relatedCards": ["Threat", "Risk", "Patch Management", "Control"],
+    "tags": ["risk", "weakness", "security"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Risk Assessment",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The process of identifying assets, threats, vulnerabilities, likelihood, and impact to determine risk.",
+    "examTip": "Risk assessment comes before selecting the best control or treatment option.",
+    "relatedCards": ["Risk", "Likelihood", "Impact", "Risk Treatment"],
+    "tags": ["risk", "assessment", "governance"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Risk Treatment",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The decision to mitigate, transfer, avoid, or accept identified risk.",
+    "examTip": "Know the four basic responses: mitigate, transfer, avoid, and accept.",
+    "relatedCards": ["Risk Acceptance", "Risk Mitigation", "Risk Transfer", "Risk Avoidance"],
+    "tags": ["risk", "decision-making", "management"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Least Privilege",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The principle of granting users and systems only the minimum access required to perform their tasks.",
+    "examTip": "When asked how to reduce unnecessary access, least privilege is usually the best answer.",
+    "relatedCards": ["Need to Know", "Separation of Duties", "Access Control", "Privilege Creep"],
+    "tags": ["access-control", "administration", "principles"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Need to Know",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A principle that access to information should be granted only when required for an authorized task.",
+    "examTip": "Need to know narrows access even when a user already has sufficient clearance.",
+    "relatedCards": ["Least Privilege", "Data Classification", "Clearance", "Access Control"],
+    "tags": ["access-control", "confidentiality", "principles"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Separation of Duties",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A control that divides critical tasks among multiple people to reduce fraud and error.",
+    "examTip": "If one person can complete a sensitive process alone, separation of duties may be missing.",
+    "relatedCards": ["Dual Control", "Least Privilege", "Job Rotation", "Fraud Prevention"],
+    "tags": ["administrative-controls", "governance", "fraud"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Data Classification",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The process of assigning sensitivity levels to data so appropriate protections can be applied.",
+    "examTip": "Classification drives labeling, handling, storage, transmission, and destruction requirements.",
+    "relatedCards": ["Data Owner", "Need to Know", "Labeling", "Sensitive Data"],
+    "tags": ["data-governance", "classification", "protection"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Data Owner",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The person or role responsible for determining the classification and protection requirements of data.",
+    "examTip": "On CISSP, the data owner decides classification; custodians implement handling controls.",
+    "relatedCards": ["Data Custodian", "Data Classification", "Data Steward", "Access Control"],
+    "tags": ["data-governance", "roles", "ownership"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Data Custodian",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The person or role responsible for implementing and maintaining the protections specified for data.",
+    "examTip": "Custodians do not usually decide classification; they enforce the owner's requirements.",
+    "relatedCards": ["Data Owner", "Data Steward", "Backup", "Access Control"],
+    "tags": ["data-governance", "roles", "operations"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Business Impact Analysis (BIA)",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A process that identifies critical business functions and evaluates the impact of disruption over time.",
+    "examTip": "The BIA comes before detailed recovery planning and helps define priorities like RTO and RPO.",
+    "relatedCards": ["Business Continuity Plan (BCP)", "Disaster Recovery Plan (DRP)", "RTO", "RPO"],
+    "tags": ["continuity", "planning", "impact-analysis"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Business Continuity Plan (BCP)",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A plan to ensure critical business functions continue during and after a disruption.",
+    "examTip": "Choose BCP when the focus is keeping the business operating, not just restoring IT systems.",
+    "relatedCards": ["Business Impact Analysis (BIA)", "Disaster Recovery Plan (DRP)", "RTO", "RPO"],
+    "tags": ["continuity", "planning", "resilience"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Disaster Recovery Plan (DRP)",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A plan focused on restoring IT systems, infrastructure, and data after a disruption.",
+    "examTip": "DRP is narrower than BCP and is specifically centered on technology recovery.",
+    "relatedCards": ["Business Continuity Plan (BCP)", "Backup", "RTO", "RPO"],
+    "tags": ["recovery", "it-operations", "resilience"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Recovery Time Objective (RTO)",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The maximum acceptable amount of time a system or process can be unavailable after an incident.",
+    "examTip": "RTO is about time to restore service, not how much data you can lose.",
+    "relatedCards": ["Recovery Point Objective (RPO)", "Business Impact Analysis (BIA)", "Disaster Recovery Plan (DRP)"],
+    "tags": ["continuity", "metrics", "recovery"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Recovery Point Objective (RPO)",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The maximum acceptable amount of data loss measured in time.",
+    "examTip": "RPO answers how much data can be lost; RTO answers how long systems can be down.",
+    "relatedCards": ["Recovery Time Objective (RTO)", "Backup", "Business Impact Analysis (BIA)", "Disaster Recovery Plan (DRP)"],
+    "tags": ["continuity", "metrics", "backup"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Access Control",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "The selective restriction of access to systems, data, and resources based on identity and authorization.",
+    "examTip": "Think of access control as identification, authentication, authorization, and accountability working together.",
+    "relatedCards": ["Identification", "Authentication", "Authorization", "Accounting"],
+    "tags": ["iam", "authorization", "security"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Identification",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "The process of claiming an identity to a system, usually by providing a username or account ID.",
+    "examTip": "Identification is just the claim of identity; authentication verifies it.",
+    "relatedCards": ["Authentication", "Authorization", "Accountability", "Identity"],
+    "tags": ["iam", "identity", "login"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Authentication",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "The process of verifying that a claimed identity is genuine.",
+    "examTip": "Passwords, tokens, biometrics, and certificates are authentication factors or methods.",
+    "relatedCards": ["Identification", "Authorization", "Multifactor Authentication (MFA)", "Biometrics"],
+    "tags": ["iam", "identity", "verification"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Authorization",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "The process of granting or denying an authenticated subject permission to perform actions or access resources.",
+    "examTip": "Authorization happens after authentication and determines what a user can do.",
+    "relatedCards": ["Authentication", "Least Privilege", "Access Control", "Entitlement"],
+    "tags": ["iam", "permissions", "access-control"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Accounting",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "The tracking and recording of user activities and resource usage for accountability and audit purposes.",
+    "examTip": "Logs and audit trails support accounting by showing who did what and when.",
+    "relatedCards": ["Audit Trail", "Authorization", "Authentication", "Accountability"],
+    "tags": ["iam", "logging", "audit"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Multifactor Authentication (MFA)",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "An authentication method that requires two or more different categories of factors, such as something you know and something you have.",
+    "examTip": "Two passwords are not MFA because they come from the same factor type.",
+    "relatedCards": ["Authentication", "Biometrics", "Smart Card", "Password"],
+    "tags": ["iam", "authentication", "strong-authentication"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Single Sign-On (SSO)",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "A capability that allows a user to authenticate once and access multiple systems without repeated logins.",
+    "examTip": "SSO improves usability but makes protection of the primary credential especially important.",
+    "relatedCards": ["Federation", "Authentication", "Kerberos", "Identity Provider"],
+    "tags": ["iam", "usability", "authentication"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Federated Identity",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "An identity management approach where identity information is shared across trusted organizations or domains.",
+    "examTip": "Federation is about trust relationships between identity systems, often using standardized protocols.",
+    "relatedCards": ["Single Sign-On (SSO)", "SAML", "OAuth", "OpenID Connect"],
+    "tags": ["iam", "federation", "trust"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Role-Based Access Control (RBAC)",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "An access control model where permissions are assigned to roles and users receive access by being assigned to those roles.",
+    "examTip": "RBAC is usually the best fit when access should align with job functions.",
+    "relatedCards": ["Least Privilege", "Rule-Based Access Control", "Access Control", "Provisioning"],
+    "tags": ["iam", "authorization", "models"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Mandatory Access Control (MAC)",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "An access control model in which access decisions are enforced by the system based on labels and clearances.",
+    "examTip": "MAC is common in high-security environments where users cannot change permissions at their discretion.",
+    "relatedCards": ["Discretionary Access Control (DAC)", "Role-Based Access Control (RBAC)", "Data Classification", "Clearance"],
+    "tags": ["iam", "authorization", "models"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Discretionary Access Control (DAC)",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "An access control model where the data owner determines who can access a resource.",
+    "examTip": "DAC is flexible but can be less secure because users may grant permissions to others.",
+    "relatedCards": ["Mandatory Access Control (MAC)", "Role-Based Access Control (RBAC)", "Access Control List (ACL)"],
+    "tags": ["iam", "authorization", "models"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Biometrics",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "Authentication based on measurable physical or behavioral characteristics such as fingerprints, iris patterns, or voice.",
+    "examTip": "Know biometric error rates like false acceptance and false rejection for exam questions.",
+    "relatedCards": ["Authentication", "False Acceptance Rate (FAR)", "False Rejection Rate (FRR)", "Multifactor Authentication (MFA)"],
+    "tags": ["iam", "authentication", "biometrics"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "False Acceptance Rate (FAR)",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "The rate at which a biometric system incorrectly accepts an unauthorized user.",
+    "examTip": "A lower FAR means fewer impostors are incorrectly granted access.",
+    "relatedCards": ["False Rejection Rate (FRR)", "Crossover Error Rate (CER)", "Biometrics"],
+    "tags": ["iam", "biometrics", "metrics"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "False Rejection Rate (FRR)",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "The rate at which a biometric system incorrectly rejects an authorized user.",
+    "examTip": "A lower FRR means fewer legitimate users are denied access.",
+    "relatedCards": ["False Acceptance Rate (FAR)", "Crossover Error Rate (CER)", "Biometrics"],
+    "tags": ["iam", "biometrics", "metrics"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Crossover Error Rate (CER)",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "The point where the false acceptance rate and false rejection rate are equal in a biometric system.",
+    "examTip": "A lower CER generally indicates a more accurate biometric system.",
+    "relatedCards": ["False Acceptance Rate (FAR)", "False Rejection Rate (FRR)", "Biometrics"],
+    "tags": ["iam", "biometrics", "accuracy"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Security Model",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "A formal framework that defines how security policies are expressed and enforced within a system.",
+    "examTip": "On the exam, security models often relate to confidentiality, integrity, or access rules.",
+    "relatedCards": ["Bell-LaPadula", "Biba", "Clark-Wilson", "Trusted Computing Base (TCB)"],
+    "tags": ["architecture", "models", "foundations"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Bell-LaPadula Model",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "A formal security model focused on preserving confidentiality through rules such as no read up and no write down.",
+    "examTip": "If the question is about preventing disclosure across classification levels, think Bell-LaPadula.",
+    "relatedCards": ["Security Model", "Biba Model", "Mandatory Access Control (MAC)", "Data Classification"],
+    "tags": ["architecture", "confidentiality", "models"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Biba Model",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "A formal security model focused on preserving integrity through rules such as no read down and no write up.",
+    "examTip": "Use Biba when the exam emphasizes protection against improper modification of information.",
+    "relatedCards": ["Bell-LaPadula Model", "Integrity", "Clark-Wilson Model", "Security Model"],
+    "tags": ["architecture", "integrity", "models"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Clark-Wilson Model",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "An integrity model that uses well-formed transactions and separation of duties to protect data.",
+    "examTip": "Clark-Wilson commonly appears in business systems where integrity and controlled change matter most.",
+    "relatedCards": ["Biba Model", "Separation of Duties", "Integrity", "Transaction Processing"],
+    "tags": ["architecture", "integrity", "business-systems"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Trusted Computing Base (TCB)",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "The total combination of hardware, software, and controls responsible for enforcing a system's security policy.",
+    "examTip": "The TCB includes only the components that must be trusted for security to work correctly.",
+    "relatedCards": ["Security Perimeter", "Reference Monitor", "Trusted Path", "Security Kernel"],
+    "tags": ["architecture", "trusted-systems", "foundations"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Reference Monitor",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "An abstract concept of a mechanism that mediates all access between subjects and objects.",
+    "examTip": "A valid reference monitor must be tamper-resistant, always invoked, and small enough to test.",
+    "relatedCards": ["Security Kernel", "Trusted Computing Base (TCB)", "Access Control", "Security Model"],
+    "tags": ["architecture", "access-control", "trusted-systems"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Security Kernel",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "The hardware, firmware, and software elements of the TCB that implement the reference monitor concept.",
+    "examTip": "Think of the security kernel as the core enforcement logic for access control decisions.",
+    "relatedCards": ["Reference Monitor", "Trusted Computing Base (TCB)", "Security Perimeter"],
+    "tags": ["architecture", "trusted-systems", "kernel"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Defense in Depth",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "A layered security strategy that uses multiple overlapping controls to protect assets.",
+    "examTip": "If one control fails, another should still provide protection; that is the essence of defense in depth.",
+    "relatedCards": ["Layered Security", "Compensating Control", "Least Privilege", "Segmentation"],
+    "tags": ["architecture", "strategy", "layering"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Fail Secure",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "A design principle in which a system defaults to a secure state when a failure occurs.",
+    "examTip": "On CISSP, fail secure means security is preserved during failure, even if convenience is reduced.",
+    "relatedCards": ["Fail Safe", "Availability", "Security Design Principles", "Physical Access Control"],
+    "tags": ["architecture", "design", "resilience"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Trusted Platform Module (TPM)",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "A hardware-based security component that provides protected cryptographic functions and secure key storage.",
+    "examTip": "TPM is often associated with secure boot, attestation, and protecting encryption keys.",
+    "relatedCards": ["Hardware Root of Trust", "Secure Boot", "Full Disk Encryption", "Cryptographic Key Management"],
+    "tags": ["architecture", "hardware-security", "cryptography"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Encryption",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "The process of converting plaintext into ciphertext to protect confidentiality.",
+    "examTip": "Encryption protects data confidentiality, but integrity and authentication may require additional mechanisms.",
+    "relatedCards": ["Ciphertext", "Plaintext", "Symmetric Encryption", "Asymmetric Encryption"],
+    "tags": ["cryptography", "confidentiality", "protection"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Symmetric Encryption",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "An encryption method that uses the same secret key for both encryption and decryption.",
+    "examTip": "Symmetric encryption is generally faster than asymmetric encryption and is common for bulk data.",
+    "relatedCards": ["Asymmetric Encryption", "Encryption", "Key Distribution", "AES"],
+    "tags": ["cryptography", "encryption", "keys"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Asymmetric Encryption",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "An encryption method that uses a public key and a private key for encryption, decryption, or digital signatures.",
+    "examTip": "Asymmetric cryptography helps with key exchange, digital signatures, and secure communication setup.",
+    "relatedCards": ["Symmetric Encryption", "Public Key Infrastructure (PKI)", "Digital Signature", "Key Exchange"],
+    "tags": ["cryptography", "encryption", "public-key"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Hash Function",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "A one-way mathematical function that converts data of any size into a fixed-length value.",
+    "examTip": "Hashes support integrity checking and password storage, but hashing is not encryption.",
+    "relatedCards": ["Integrity", "Digital Signature", "Salt", "Checksum"],
+    "tags": ["cryptography", "integrity", "hashing"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Digital Signature",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "A cryptographic mechanism that provides integrity, authentication, and nonrepudiation for digital data.",
+    "examTip": "Digital signatures are created with a private key and verified with the corresponding public key.",
+    "relatedCards": ["Nonrepudiation", "Asymmetric Encryption", "Hash Function", "Public Key Infrastructure (PKI)"],
+    "tags": ["cryptography", "signatures", "integrity"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Public Key Infrastructure (PKI)",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "A framework of roles, policies, hardware, software, and procedures used to create, manage, distribute, and revoke digital certificates.",
+    "examTip": "PKI supports trust in public keys through certificates and certificate authorities.",
+    "relatedCards": ["Digital Certificate", "Certificate Authority (CA)", "Digital Signature", "Asymmetric Encryption"],
+    "tags": ["cryptography", "pki", "trust"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Certificate Authority (CA)",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "A trusted entity that issues and digitally signs certificates to bind identities to public keys.",
+    "examTip": "If trust in a certificate is the issue, the CA is often central to the answer.",
+    "relatedCards": ["Public Key Infrastructure (PKI)", "Digital Certificate", "Registration Authority (RA)", "Revocation"],
+    "tags": ["cryptography", "pki", "certificates"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Network Segmentation",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "The practice of dividing a network into smaller zones or segments to improve security and control traffic flow.",
+    "examTip": "Segmentation limits lateral movement and can reduce the impact of a breach.",
+    "relatedCards": ["Firewall", "VLAN", "Defense in Depth", "DMZ"],
+    "tags": ["network-security", "architecture", "containment"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Firewall",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A device or software that filters network traffic based on defined security rules.",
+    "examTip": "Firewalls control traffic between trust boundaries, but they do not replace secure configuration or endpoint protection.",
+    "relatedCards": ["Packet Filtering", "Stateful Inspection", "Proxy", "Network Segmentation"],
+    "tags": ["network-security", "perimeter", "filtering"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Demilitarized Zone (DMZ)",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A network segment that isolates publicly accessible systems from the internal trusted network.",
+    "examTip": "Place internet-facing services in a DMZ to reduce direct exposure of internal systems.",
+    "relatedCards": ["Firewall", "Network Segmentation", "Proxy", "Web Server"],
+    "tags": ["network-security", "perimeter", "segmentation"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Virtual Private Network (VPN)",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A secure communication tunnel over an untrusted network that protects data in transit.",
+    "examTip": "VPNs are commonly used for secure remote access or site-to-site connectivity.",
+    "relatedCards": ["IPsec", "TLS", "Remote Access", "Encryption"],
+    "tags": ["network-security", "remote-access", "encryption"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Transport Layer Security (TLS)",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A cryptographic protocol used to secure data in transit over networks.",
+    "examTip": "TLS protects confidentiality and integrity for many internet communications, including HTTPS.",
+    "relatedCards": ["HTTPS", "Encryption", "Digital Certificate", "VPN"],
+    "tags": ["network-security", "protocols", "cryptography"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Intrusion Detection System (IDS)",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A system that monitors activity or traffic for signs of malicious behavior and generates alerts.",
+    "examTip": "IDS detects and alerts; it does not typically block traffic by itself.",
+    "relatedCards": ["Intrusion Prevention System (IPS)", "Signature-Based Detection", "Anomaly-Based Detection", "SIEM"],
+    "tags": ["network-security", "monitoring", "detection"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Intrusion Prevention System (IPS)",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A system that monitors for malicious activity and can automatically block or prevent it.",
+    "examTip": "IPS is like IDS with active prevention capability, so placement and tuning matter.",
+    "relatedCards": ["Intrusion Detection System (IDS)", "Firewall", "Signature-Based Detection", "Anomaly-Based Detection"],
+    "tags": ["network-security", "prevention", "monitoring"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Virtual LAN (VLAN)",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A logical grouping of devices on a network that separates broadcast domains without requiring separate physical switches.",
+    "examTip": "VLANs improve segmentation, but they do not replace proper firewall rules between segments.",
+    "relatedCards": ["Network Segmentation", "Switch", "Trunking", "Broadcast Domain"],
+    "tags": ["network-security", "segmentation", "lan"],
+    "contributor": "GPT 5.4"
+  }
+]
