@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CISSP Readiness Tool</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --muted: #94a3b8;
+      --text: #e5e7eb;
+      --accent: #3b82f6;
+      --border: #1f2937;
+    }
+    body {
+      margin: 0;
+      padding: 16px;
+      width: 320px;
+      background: linear-gradient(180deg, #0b1220 0%, #111827 100%);
+      color: var(--text);
+      font-family: Segoe UI, Arial, sans-serif;
+    }
+    .card {
+      border: 1px solid var(--border);
+      background: rgba(17, 24, 39, 0.92);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    h1 {
+      font-size: 16px;
+      margin: 0 0 8px 0;
+    }
+    p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0 0 14px 0;
+    }
+    button {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      padding: 12px;
+      cursor: pointer;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+    .secondary {
+      margin-top: 10px;
+      background: transparent;
+      border: 1px solid #334155;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>CISSP Readiness and Coaching Tool</h1>
+    <p>Standalone coach dashboard for member intake, readiness scoring, journal tracking, cohorts, and exports.</p>
+    <button id="openAppBtn">Open Tool</button>
+    <button class="secondary" id="openNewTabBtn">Open in New Tab</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

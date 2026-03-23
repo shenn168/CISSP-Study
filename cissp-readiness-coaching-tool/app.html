@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CISSP Readiness and Coaching Tool</title>
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body data-theme="dark">
+  <div id="pinOverlay" class="overlay">
+    <div class="pin-card">
+      <h1>CISSP Readiness and Coaching Tool</h1>
+      <p id="pinHelpText">Set a 4-digit PIN to secure local access.</p>
+      <div id="pinSetupSection">
+        <input id="pinSetupInput" type="password" maxlength="4" inputmode="numeric" placeholder="Enter 4-digit PIN" />
+        <input id="pinSetupConfirmInput" type="password" maxlength="4" inputmode="numeric" placeholder="Confirm 4-digit PIN" />
+        <button id="setPinBtn" class="primary-btn">Set PIN</button>
+      </div>
+      <div id="pinUnlockSection" class="hidden">
+        <input id="pinUnlockInput" type="password" maxlength="4" inputmode="numeric" placeholder="Enter PIN" />
+        <button id="unlockBtn" class="primary-btn">Unlock</button>
+      </div>
+      <div id="pinMessage" class="pin-message"></div>
+    </div>
+  </div>
+
+  <div id="appShell" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-title">CISSP Readiness</div>
+        <div class="brand-subtitle">Coaching Tool</div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-btn active" data-view="dashboardView">Dashboard</button>
+        <button class="nav-btn" data-view="membersView">Members</button>
+        <button class="nav-btn" data-view="journalView">Journal</button>
+        <button class="nav-btn" data-view="reportsView">Reports</button>
+        <button class="nav-btn" data-view="settingsView">Settings</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="lockAppBtn" class="ghost-btn">Lock App</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <div class="subtle-text" id="pageSubtitle">Coach overview across cohorts and members</div>
+        </div>
+        <div class="topbar-actions">
+          <select id="globalCohortFilter" class="input compact">
+            <option value="all">All Cohorts</option>
+          </select>
+          <button id="quickAddMemberBtn" class="primary-btn">Add Member</button>
+        </div>
+      </header>
+
+      <section id="dashboardView" class="view active">
+        <div class="dashboard-grid">
+          <div class="card stat-card">
+            <div class="stat-label">Total Members</div>
+            <div class="stat-value" id="statTotalMembers">0</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-label">Green</div>
+            <div class="stat-value green" id="statGreen">0</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-label">Yellow</div>
+            <div class="stat-value yellow" id="statYellow">0</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-label">Orange</div>
+            <div class="stat-value orange" id="statOrange">0</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-label">Red</div>
+            <div class="stat-value red" id="statRed">0</div>
+          </div>
+        </div>
+
+        <div class="dashboard-panels">
+          <div class="card">
+            <div class="card-header">
+              <h2>Members at Risk</h2>
+            </div>
+            <div id="atRiskList" class="list"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h2>Upcoming Exam Dates</h2>
+            </div>
+            <div id="upcomingExamList" class="list"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h2>No Recent Update</h2>
+            </div>
+            <div id="staleMembersList" class="list"></div>
+          </div>
+
+          <div class="card wide-card">
+            <div class="card-header">
+              <h2>Top Weak Domains</h2>
+            </div>
+            <div id="weakDomainsList" class="list"></div>
+          </div>
+
+          <div class="card wide-card">
+            <div class="card-header">
+              <h2>Recent Journal Activity</h2>
+            </div>
+            <div id="recentActivityList" class="list"></div>
+          </div>
+
+          <div class="card wide-card">
+            <div class="card-header">
+              <h2>Readiness Score</h2>
+            </div>
+            <canvas id="trendCanvas" width="1100" height="360"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section id="membersView" class="view">
+        <div class="toolbar">
+          <input id="memberSearchInput" class="input" type="text" placeholder="Search members..." />
+          <button id="addMemberBtn" class="primary-btn">Add Member</button>
+        </div>
+
+        <div class="card">
+          <div id="memberTableWrap" class="table-wrap"></div>
+        </div>
+
+        <div id="memberFormPanel" class="slide-panel hidden">
+          <div class="panel-header">
+            <div>
+              <h2 id="memberFormTitle">Add Member</h2>
+              <div class="subtle-text">Capture enough context to support consistent readiness scoring and coaching follow-up.</div>
+            </div>
+            <button id="closeMemberFormBtn" class="ghost-btn">Close</button>
+          </div>
+
+          <form id="memberForm" class="form-grid">
+            <input type="hidden" id="memberId" />
+
+            <div class="form-field">
+              <label>Full Name</label>
+              <input id="fullName" class="input" required />
+              <div class="field-tip">
+                <strong>Use:</strong> Member’s full name for official tracking.<br />
+                <strong>Reason:</strong> Primary identifier across cohorts, journal entries, and reports.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Preferred Name</label>
+              <input id="preferredName" class="input" />
+              <div class="field-tip">
+                <strong>Typical:</strong> Short or familiar name, for example <code>Chris</code> or <code>Taylor</code>.<br />
+                <strong>Reason:</strong> Helps make coaching notes and group interaction more natural.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Cohort</label>
+              <input id="cohort" class="input" placeholder="Example: Spring 2026" />
+              <div class="field-tip">
+                <strong>Typical:</strong> Cohort name such as <code>Spring 2026</code>, <code>Q2 2026</code>, or <code>Weekend Group A</code>.<br />
+                <strong>Reason:</strong> Used for filtering, reporting, and comparing readiness across study groups.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Target Exam Date</label>
+              <input id="targetExamDate" class="input" type="date" />
+              <div class="field-tip">
+                <strong>Typical:</strong> A planned exam date within the next few weeks or months.<br />
+                <strong>Reason:</strong> Helps identify urgency, pacing, and whether the member is scheduling too early.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Current Role/Title</label>
+              <input id="currentRole" class="input" />
+              <div class="field-tip">
+                <strong>Examples:</strong> Security Analyst, Network Engineer, Risk Analyst, Security Manager, Cloud Engineer.<br />
+                <strong>Reason:</strong> Gives context for likely strengths and gaps across technical vs governance domains.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Years in IT</label>
+              <input id="yearsIT" class="input" type="number" min="0" step="1" />
+              <div class="field-tip">
+                <strong>Typical range:</strong> <code>0-25</code> years.<br />
+                <strong>Reason:</strong> Broad IT experience often helps with exam context, architecture, operations, and business perspective.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Years in Security</label>
+              <input id="yearsSecurity" class="input" type="number" min="0" step="1" />
+              <div class="field-tip">
+                <strong>Typical range:</strong> <code>0-20</code> years.<br />
+                <strong>Reason:</strong> Stronger security experience often improves domain familiarity and judgment-based decision making.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>ISC2 Experience Status</label>
+              <select id="isc2Status" class="input">
+                <option value="">Select</option>
+                <option value="meets">Meets Experience Requirement</option>
+                <option value="associate">Associate Path / Pending Experience</option>
+                <option value="unknown">Unknown</option>
+              </select>
+              <div class="field-tip">
+                <strong>Typical values:</strong> Meets, Associate Path, or Unknown.<br />
+                <strong>Reason:</strong> Helps distinguish exam readiness from certification eligibility and post-pass next steps.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Managerial vs Technical Self-Rating</label>
+              <select id="managerialTechnicalRating" class="input">
+                <option value="">Select</option>
+                <option value="managerial">More Managerial</option>
+                <option value="balanced">Balanced</option>
+                <option value="technical">More Technical</option>
+              </select>
+              <div class="field-tip">
+                <strong>Typical values:</strong> Managerial, Balanced, Technical.<br />
+                <strong>Reason:</strong> CISSP often rewards a management and risk mindset, so highly technical members may need mindset coaching.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Initial Confidence Rating</label>
+              <select id="initialConfidence" class="input">
+                <option value="">Select</option>
+                <option value="1">1 - Very Low</option>
+                <option value="2">2 - Low</option>
+                <option value="3">3 - Moderate</option>
+                <option value="4">4 - Strong</option>
+                <option value="5">5 - Very Strong</option>
+              </select>
+              <div class="field-tip">
+                <strong>Typical range:</strong> <code>1-5</code>.<br />
+                <strong>Reason:</strong> Useful as an initial baseline, but should not outweigh actual study behavior and practice performance.
+              </div>
+            </div>
+
+            <div class="form-field full">
+              <label>Background Summary</label>
+              <textarea id="backgroundSummary" class="input" rows="3"></textarea>
+              <div class="field-tip">
+                <strong>Suggested content:</strong> Key functions, domain exposure, prior certifications, leadership responsibility, and known strengths.<br />
+                <strong>Reason:</strong> Gives richer context for experience scoring and helps tailor coaching plans.
+              </div>
+            </div>
+
+            <div class="form-field full">
+              <label>Notes</label>
+              <textarea id="memberNotes" class="input" rows="3"></textarea>
+              <div class="field-tip">
+                <strong>Suggested use:</strong> Intake observations, risks, learning style, scheduling concerns, or accommodations.<br />
+                <strong>Reason:</strong> Helps preserve coach context that may not fit a structured field.
+              </div>
+            </div>
+
+            <div class="form-actions full">
+              <button type="submit" class="primary-btn">Save Member</button>
+            </div>
+          </form>
+        </div>
+
+        <div id="memberDetailPanel" class="slide-panel hidden"></div>
+      </section>
+
+      <section id="journalView" class="view">
+        <div class="toolbar">
+          <select id="journalMemberFilter" class="input">
+            <option value="">Select Member</option>
+          </select>
+          <button id="newJournalEntryBtn" class="primary-btn">New Journal Entry</button>
+        </div>
+
+        <div id="journalFormPanel" class="slide-panel hidden">
+          <div class="panel-header">
+            <div>
+              <h2 id="journalFormTitle">New Journal Entry</h2>
+              <div class="subtle-text">Capture a consistent coaching snapshot for each member over time.</div>
+            </div>
+            <button id="closeJournalFormBtn" class="ghost-btn">Close</button>
+          </div>
+
+          <form id="journalForm" class="form-grid">
+            <input type="hidden" id="journalId" />
+
+            <div class="form-field">
+              <label>Member</label>
+              <select id="journalMemberId" class="input" required></select>
+              <div class="field-tip">
+                <strong>Use:</strong> Select the member this entry belongs to.<br />
+                <strong>Reason:</strong> All readiness trends and coaching history are tracked per member.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Entry Date</label>
+              <input id="entryDate" class="input" type="date" required />
+              <div class="field-tip">
+                <strong>Typical:</strong> Use the session date or date of the coaching check-in.<br />
+                <strong>Reason:</strong> Supports progress timelines and recent activity tracking.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Study Hours</label>
+              <input id="studyHours" class="input" type="number" min="0" step="0.5" />
+              <div class="field-tip">
+                <strong>Typical range:</strong> <code>0-15</code> hours for a weekly entry.<br />
+                <strong>Reason:</strong> Helps measure consistency and study discipline over time.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Attendance Status</label>
+              <select id="attendanceStatus" class="input">
+                <option value="Attended">Attended</option>
+                <option value="Missed">Missed</option>
+                <option value="Excused">Excused</option>
+                <option value="Self-study only">Self-study only</option>
+              </select>
+              <div class="field-tip">
+                <strong>Typical values:</strong> Attended, Missed, Excused, Self-study only.<br />
+                <strong>Reason:</strong> Attendance and engagement often correlate with study consistency and coaching follow-through.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Practice Questions Completed</label>
+              <input id="practiceQuestionsCompleted" class="input" type="number" min="0" step="1" />
+              <div class="field-tip">
+                <strong>Typical range:</strong> <code>0-500</code> per entry.<br />
+                <strong>Reason:</strong> Helps estimate practice volume and readiness momentum across time.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>First-Attempt Mixed Score</label>
+              <input id="firstAttemptMixedScore" class="input" type="number" min="0" max="100" step="1" />
+              <div class="field-tip">
+                <strong>Typical range:</strong> <code>0-100</code> percent.<br />
+                <strong>Reason:</strong> One of the strongest readiness indicators, especially when based on fresh mixed-question sets.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Full Practice Exam Score</label>
+              <input id="fullPracticeExamScore" class="input" type="number" min="0" max="100" step="1" />
+              <div class="field-tip">
+                <strong>Typical range:</strong> <code>0-100</code> percent.<br />
+                <strong>Reason:</strong> Helps assess stamina, broad domain coverage, and exam-style performance.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Confidence Rating</label>
+              <select id="confidenceRating" class="input">
+                <option value="">Select</option>
+                <option value="1">1 - Very Low</option>
+                <option value="2">2 - Low</option>
+                <option value="3">3 - Moderate</option>
+                <option value="4">4 - Strong</option>
+                <option value="5">5 - Very Strong</option>
+              </select>
+              <div class="field-tip">
+                <strong>Typical range:</strong> <code>1-5</code>.<br />
+                <strong>Reason:</strong> Tracks perceived confidence and can reveal overconfidence or confidence drops before the exam.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Managerial Reasoning Score</label>
+              <input id="managerialReasoningScore" class="input" type="number" min="0" max="10" step="1" />
+              <div class="field-tip">
+                <strong>Typical range:</strong> <code>0-10</code>.<br />
+                <strong>Reason:</strong> Measures whether the member is thinking like a CISSP decision-maker rather than only a technician.
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Exam Execution Score</label>
+              <input id="examExecutionScore" class="input" type="number" min="0" max="5" step="1" />
+              <div class="field-tip">
+                <strong>Typical range:</strong> <code>0-5</code>.<br />
+                <strong>Reason:</strong> Captures pacing, composure, endurance, and ability to handle ambiguity under test conditions.
+              </div>
+            </div>
+
+            <div class="form-field full">
+              <label>Materials Covered</label>
+              <textarea id="materialsCovered" class="input" rows="2" placeholder="Example: OSG Ch. 4, LearnZapp, Pete Zerger domain review"></textarea>
+              <div class="field-tip">
+                <strong>Suggested content:</strong> Book chapters, videos, labs, question banks, review sessions, or mock exams.<br />
+                <strong>Reason:</strong> Helps estimate study coverage and identify whether the member is using balanced preparation sources.
+              </div>
+            </div>
+
+            <div class="form-field full">
+              <label>Domain Scores</label>
+              <div class="field-tip" style="margin-bottom: 8px;">
+                <strong>Typical range:</strong> <code>0-100</code> percent for each domain.<br />
+                <strong>Reason:</strong> Domain-level tracking helps identify hidden weaknesses even when the overall average looks acceptable.
+              </div>
+
+              <div class="domain-grid full">
+                <div class="domain-card">
+                  <label>Domain 1</label>
+                  <input id="d1" class="input" type="number" min="0" max="100" />
+                  <div class="field-tip">Security and Risk Management. Track governance/risk maturity.</div>
+                </div>
+                <div class="domain-card">
+                  <label>Domain 2</label>
+                  <input id="d2" class="input" type="number" min="0" max="100" />
+                  <div class="field-tip">Asset Security. Track data handling and classification knowledge.</div>
+                </div>
+                <div class="domain-card">
+                  <label>Domain 3</label>
+                  <input id="d3" class="input" type="number" min="0" max="100" />
+                  <div class="field-tip">Security Architecture and Engineering. Often a key technical gap area.</div>
+                </div>
+                <div class="domain-card">
+                  <label>Domain 4</label>
+                  <input id="d4" class="input" type="number" min="0" max="100" />
+                  <div class="field-tip">Communication and Network Security. Helps track networking depth.</div>
+                </div>
+                <div class="domain-card">
+                  <label>Domain 5</label>
+                  <input id="d5" class="input" type="number" min="0" max="100" />
+                  <div class="field-tip">Identity and Access Management. Useful for access control reasoning.</div>
+                </div>
+                <div class="domain-card">
+                  <label>Domain 6</label>
+                  <input id="d6" class="input" type="number" min="0" max="100" />
+                  <div class="field-tip">Security Assessment and Testing. Tracks audit/testing competence.</div>
+                </div>
+                <div class="domain-card">
+                  <label>Domain 7</label>
+                  <input id="d7" class="input" type="number" min="0" max="100" />
+                  <div class="field-tip">Security Operations. Helps measure operational judgment and incident response breadth.</div>
+                </div>
+                <div class="domain-card">
+                  <label>Domain 8</label>
+                  <input id="d8" class="input" type="number" min="0" max="100" />
+                  <div class="field-tip">Software Development Security. Useful for identifying SDLC/application security weakness.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-field full">
+              <label>Coach Observations</label>
+              <textarea id="coachObservations" class="input" rows="3"></textarea>
+              <div class="field-tip">
+                <strong>Suggested use:</strong> Capture patterns such as overthinking, technical-only mindset, strong elimination logic, or improving judgment.<br />
+                <strong>Reason:</strong> Preserves coaching insight that numbers alone will not show.
+              </div>
+            </div>
+
+            <div class="form-field full">
+              <label>Blockers</label>
+              <textarea id="blockers" class="input" rows="2"></textarea>
+              <div class="field-tip">
+                <strong>Examples:</strong> Scheduling conflicts, low confidence, weak Domain 3, inconsistent study, burnout, test anxiety.<br />
+                <strong>Reason:</strong> Identifies coaching risks that can delay or reduce pass likelihood.
+              </div>
+            </div>
+
+            <div class="form-field full">
+              <label>Next Actions</label>
+              <textarea id="nextActions" class="input" rows="2"></textarea>
+              <div class="field-tip">
+                <strong>Examples:</strong> Complete two mixed sets, review Domain 4, watch Pete Zerger review, shift to manager lens.<br />
+                <strong>Reason:</strong> Creates concrete follow-up steps and accountability for the next check-in.
+              </div>
+            </div>
+
+            <div class="form-field full">
+              <label>Tags (comma separated)</label>
+              <input id="tags" class="input" placeholder="attendance, weak-domain, confidence" />
+              <div class="field-tip">
+                <strong>Typical tags:</strong> <code>weak-domain</code>, <code>progress</code>, <code>confidence</code>, <code>mindset</code>, <code>technical-gap</code>.<br />
+                <strong>Reason:</strong> Makes it easier to categorize entries and spot patterns across members.
+              </div>
+            </div>
+
+            <div class="form-actions full">
+              <button type="submit" class="primary-btn">Save Journal Entry</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card">
+          <div id="journalTimeline" class="timeline"></div>
+        </div>
+      </section>
+
+      <section id="reportsView" class="view">
+        <div class="reports-grid">
+          <div class="card">
+            <h2>Export</h2>
+            <div class="stack">
+              <button id="exportJsonBtn" class="primary-btn">Export All Data to JSON</button>
+              <button id="exportCsvBtn" class="secondary-btn">Export Members to CSV</button>
+              <button id="exportSafeJsonBtn" class="secondary-btn">Export Safe JSON</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Import</h2>
+            <div class="stack">
+              <label class="file-label">
+                Import Members CSV
+                <input id="importCsvInput" type="file" accept=".csv" hidden />
+              </label>
+              <label class="file-label">
+                Import Full JSON
+                <input id="importJsonInput" type="file" accept=".json" hidden />
+              </label>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Print</h2>
+            <div class="stack">
+              <select id="printMemberSelect" class="input">
+                <option value="">Select Member</option>
+              </select>
+              <button id="printMemberSummaryBtn" class="secondary-btn">Print Member Summary</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="settingsView" class="view">
+        <div class="settings-grid">
+          <div class="card">
+            <h2>Readiness Weights</h2>
+            <form id="weightsForm" class="form-grid">
+              <div class="form-field">
+                <label>Experience and Background</label>
+                <input id="wExperience" class="input" type="number" min="0" max="100" />
+              </div>
+              <div class="form-field">
+                <label>Study Discipline and Consistency</label>
+                <input id="wDiscipline" class="input" type="number" min="0" max="100" />
+              </div>
+              <div class="form-field">
+                <label>Coverage of Study Materials</label>
+                <input id="wCoverage" class="input" type="number" min="0" max="100" />
+              </div>
+              <div class="form-field">
+                <label>Practice Question Performance</label>
+                <input id="wPractice" class="input" type="number" min="0" max="100" />
+              </div>
+              <div class="form-field">
+                <label>Domain Balance</label>
+                <input id="wDomainBalance" class="input" type="number" min="0" max="100" />
+              </div>
+              <div class="form-field">
+                <label>Managerial Reasoning</label>
+                <input id="wMindset" class="input" type="number" min="0" max="100" />
+              </div>
+              <div class="form-field">
+                <label>Exam Execution</label>
+                <input id="wExecution" class="input" type="number" min="0" max="100" />
+              </div>
+              <div class="form-actions full">
+                <button type="submit" class="primary-btn">Save Weights</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="card">
+            <h2>Readiness Bands</h2>
+            <p class="subtle-text">Default interpretation used by the app.</p>
+            <ul class="plain-list">
+              <li>Green: 85-100</li>
+              <li>Yellow: 70-84</li>
+              <li>Orange: 55-69</li>
+              <li>Red: below 55</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h2>App Security</h2>
+            <div class="stack">
+              <button id="changePinBtn" class="secondary-btn">Change PIN</button>
+              <button id="resetSampleDataBtn" class="secondary-btn">Load Sample Data</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Theme</h2>
+            <div class="stack">
+              <select id="themeSelect" class="input">
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

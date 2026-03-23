@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "CISSP Readiness and Coaching Tool",
+  "version": "1.0.11",
+  "description": "Standalone CISSP readiness scoring, coaching journal, and cohort tracking tool for coaches.",
+  "action": {
+    "default_title": "CISSP Readiness and Coaching Tool",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "app.html",
+        "app.css",
+        "app.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
