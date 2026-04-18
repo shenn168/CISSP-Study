@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CISSP StudyDeck</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- ===== TOP NAV ===== -->
+  <header class="topnav">
+    <div class="topnav-brand">
+      <span class="brand-icon">&#x1F6E1;</span>
+      <span class="brand-text">CISSP <span class="brand-accent">StudyDeck</span></span>
+    </div>
+    <nav class="topnav-links">
+      <button class="nav-btn active" data-view="home">Home</button>
+      <button class="nav-btn" data-view="study">Study</button>
+      <button class="nav-btn" data-view="scenarios">Scenarios</button>
+      <button class="nav-btn" data-view="dashboard">Dashboard</button>
+      <button class="nav-btn" data-view="decks">Decks</button>
+      <button class="nav-btn" data-view="import">Import</button>
+      <button class="nav-btn" data-view="export">Export</button>
+      <button class="nav-btn" data-view="settings">Settings</button>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+      <span class="theme-icon-dark">&#x1F319;</span>
+      <span class="theme-icon-light">&#x2600;</span>
+    </button>
+  </header>
+
+  <!-- ===== MAIN CONTENT VIEWS ===== -->
+  <main class="main-content">
+
+    <!-- HOME VIEW -->
+    <section class="view active" id="view-home">
+      <div class="home-hero">
+        <h1>Welcome to <span class="brand-accent">StudyDeck</span></h1>
+        <p class="home-subtitle">Master all 8 CISSP domains with spaced repetition, scenario-based learning, and collaborative deck sharing.</p>
+        <div class="home-stats" id="homeStats">
+          <div class="stat-card">
+            <span class="stat-number" id="statTotalCards">0</span>
+            <span class="stat-label">Total Cards</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="statDueToday">0</span>
+            <span class="stat-label">Due Today</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="statMastered">0</span>
+            <span class="stat-label">Mastered</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="statStreak">0</span>
+            <span class="stat-label">Day Streak</span>
+          </div>
+        </div>
+        <div class="home-actions">
+          <button class="btn btn-primary btn-lg" data-view="study">Start Studying</button>
+          <button class="btn btn-secondary btn-lg" data-view="import">Import Deck</button>
+        </div>
+        <div class="home-domains" id="homeDomains"></div>
+      </div>
+    </section>
+
+    <!-- IMPORT VIEW -->
+    <section class="view" id="view-import">
+      <div class="view-container">
+        <h2>Import Flash Cards</h2>
+        <p class="view-desc">Import cards from JSON, CSV, or plain-text files. Duplicates will be detected and merged with attribution.</p>
+
+        <div class="import-zone" id="importZone">
+          <div class="import-dropzone" id="importDropzone">
+            <span class="drop-icon">&#x1F4C2;</span>
+            <p>Drag &amp; drop your file here</p>
+            <p class="drop-sub">or click to browse</p>
+            <input type="file" id="importFileInput" accept=".json,.csv,.txt" hidden />
+          </div>
+        </div>
+
+        <div class="import-options">
+          <label class="import-option">
+            <input type="checkbox" id="mergeOnImport" checked />
+            <span>Merge into existing deck (detect duplicates)</span>
+          </label>
+        </div>
+
+        <!-- Merge Preview -->
+        <div class="merge-preview hidden" id="mergePreview">
+          <h3>Import Preview</h3>
+          <div class="merge-stats" id="mergeStats"></div>
+          <div class="merge-list" id="mergeList"></div>
+          <div class="merge-actions">
+            <button class="btn btn-primary" id="confirmImport">Confirm Import</button>
+            <button class="btn btn-ghost" id="cancelImport">Cancel</button>
+          </div>
+        </div>
+
+        <!-- Import Errors -->
+        <div class="import-errors hidden" id="importErrors">
+          <h3>Import Errors</h3>
+          <ul id="importErrorList"></ul>
+        </div>
+
+        <!-- Import Success -->
+        <div class="import-success hidden" id="importSuccess">
+          <span class="success-icon">&#x2705;</span>
+          <p id="importSuccessMsg"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STUDY VIEW (Classic Flip) -->
+    <section class="view" id="view-study">
+      <div class="view-container">
+        <div class="study-toolbar">
+          <h2>Study Mode</h2>
+          <div class="study-filters">
+            <select id="studyDomainFilter" class="select-input">
+              <option value="all">All Domains</option>
+            </select>
+            <select id="studyTypeFilter" class="select-input">
+              <option value="all">All Types</option>
+              <option value="definition">Definitions</option>
+              <option value="scenario">Scenarios</option>
+            </select>
+            <select id="studyQueueFilter" class="select-input">
+              <option value="all">All Cards</option>
+              <option value="due">Due for Review</option>
+              <option value="new">New Cards</option>
+              <option value="flagged">Flagged Cards</option>
+              <option value="dontknow">Don't Know</option>
+            </select>
+            <button class="btn btn-primary" id="startStudySession">Start Session</button>
+          </div>
+        </div>
+
+        <!-- Session Area -->
+        <div class="study-session hidden" id="studySession">
+          <div class="study-progress">
+            <div class="progress-bar-track">
+              <div class="progress-bar-fill" id="studyProgressBar"></div>
+            </div>
+            <span class="progress-text" id="studyProgressText">0 / 0</span>
+          </div>
+
+          <!-- 3D Flip Card -->
+          <div class="flip-card-container" id="flipCardContainer">
+            <div class="flip-card" id="flipCard">
+              <div class="flip-card-front">
+                <div class="card-domain-badge" id="cardDomainBadge"></div>
+                <div class="card-type-badge" id="cardTypeBadge"></div>
+                <div class="card-tags" id="cardTags"></div>
+                <h3 class="card-term" id="cardTerm"></h3>
+                <div class="card-scenario-text hidden" id="cardScenarioText"></div>
+                <p class="card-hint">Click or press Space to flip</p>
+              </div>
+              <div class="flip-card-back">
+                <div class="card-domain-badge" id="cardDomainBadgeBack"></div>
+                <div class="card-answer-section">
+                  <h4>Answer</h4>
+                  <p class="card-answer" id="cardAnswer"></p>
+                </div>
+                <div class="card-alsosee-section hidden" id="cardAlsoSeeSection">
+                  <h4>Also See</h4>
+                  <div id="cardAlsoSee"></div>
+                </div>
+                <div class="card-examtip-section hidden" id="cardExamTipSection">
+                  <h4>&#x1F4A1; Exam Tip</h4>
+                  <p class="card-examtip" id="cardExamTip"></p>
+                </div>
+                <div class="card-related-section hidden" id="cardRelatedSection">
+                  <h4>Related Cards</h4>
+                  <div class="card-related" id="cardRelated"></div>
+                </div>
+                <div class="card-attribution" id="cardAttribution"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Assessment Buttons -->
+          <div class="assessment-buttons" id="assessmentButtons">
+            <button class="btn assess-btn assess-know" data-quality="know" title="Press 1">
+              <span class="assess-icon">&#x2705;</span> Know It
+              <span class="assess-key">1</span>
+            </button>
+            <button class="btn assess-btn assess-unsure" data-quality="unsure" title="Press 2">
+              <span class="assess-icon">&#x1F914;</span> Unsure
+              <span class="assess-key">2</span>
+            </button>
+            <button class="btn assess-btn assess-dontknow" data-quality="dontknow" title="Press 3">
+              <span class="assess-icon">&#x274C;</span> Don't Know
+              <span class="assess-key">3</span>
+            </button>
+          </div>
+
+          <!-- Session controls -->
+          <div class="session-controls">
+            <button class="btn btn-ghost" id="endSession">End Session</button>
+          </div>
+        </div>
+
+        <!-- Session Complete -->
+        <div class="session-complete hidden" id="sessionComplete">
+          <span class="complete-icon">&#x1F389;</span>
+          <h3>Session Complete!</h3>
+          <div class="session-summary" id="sessionSummary"></div>
+          <div class="session-complete-actions">
+            <button class="btn btn-primary" id="newSession">New Session</button>
+            <button class="btn btn-secondary" data-view="dashboard">View Dashboard</button>
+          </div>
+        </div>
+
+        <!-- No Cards State -->
+        <div class="no-cards" id="noCardsMsg">
+          <span class="no-cards-icon">&#x1F4DA;</span>
+          <p>No cards loaded yet. Import a deck to start studying!</p>
+          <button class="btn btn-primary" data-view="import">Import Deck</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENARIOS VIEW -->
+    <section class="view" id="view-scenarios">
+      <div class="view-container">
+        <h2>Scenario-Based Cards</h2>
+        <p class="view-desc">Practice "Think Like a Manager" scenarios — long-form situations with detailed rationale.</p>
+        <div id="scenarioContent"></div>
+      </div>
+    </section>
+
+    <!-- DASHBOARD VIEW -->
+    <section class="view" id="view-dashboard">
+      <div class="view-container">
+        <h2>Progress Dashboard</h2>
+        <div id="dashboardContent"></div>
+      </div>
+    </section>
+
+    <!-- DECKS VIEW -->
+    <section class="view" id="view-decks">
+      <div class="view-container">
+        <h2>Deck Manager</h2>
+        <p class="view-desc">Manage your imported decks, view contributors, and organize your card library.</p>
+        <div id="deckManagerContent"></div>
+      </div>
+    </section>
+
+    <!-- EXPORT VIEW -->
+    <section class="view" id="view-export">
+      <div class="view-container">
+        <h2>Export Deck</h2>
+        <div id="exportContent"></div>
+      </div>
+    </section>
+
+    <!-- SETTINGS VIEW -->
+    <section class="view" id="view-settings">
+      <div class="view-container">
+        <h2>Settings</h2>
+        <div id="settingsContent"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== TOAST NOTIFICATION ===== -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="js/utils.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/parsers.js"></script>
+  <script src="js/sm2.js"></script>
+  <script src="js/importer.js"></script>
+  <script src="js/studymode.js"></script>
+  <script src="js/scenario.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/exporter.js"></script>
+  <script src="js/deckmanager.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

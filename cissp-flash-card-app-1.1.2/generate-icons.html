@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate CISSP StudyDeck Icons</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; background: #1a1a2e; color: #eee; text-align: center; }
+    canvas { border: 1px solid #333; margin: 0.5rem; }
+    button { padding: 0.5rem 1.5rem; margin: 0.5rem; cursor: pointer; background: #00d4ff; border: none; border-radius: 6px; font-weight: bold; }
+    button:hover { background: #0ea5e9; }
+    .row { margin: 1rem 0; }
+  </style>
+</head>
+<body>
+  <h1>CISSP StudyDeck Icon Generator</h1>
+  <p>Click each button to download the icon. Place all three in the <code>assets/</code> folder.</p>
+
+  <div class="row">
+    <canvas id="c16" width="16" height="16"></canvas>
+    <canvas id="c48" width="48" height="48"></canvas>
+    <canvas id="c128" width="128" height="128"></canvas>
+  </div>
+
+  <div class="row">
+    <button onclick="download('c16', 'icon16.png')">Download icon16.png</button>
+    <button onclick="download('c48', 'icon48.png')">Download icon48.png</button>
+    <button onclick="download('c128', 'icon128.png')">Download icon128.png</button>
+  </div>
+
+  <script>
+    function drawIcon(canvasId) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+      const s = canvas.width;
+
+      // Background circle
+      ctx.beginPath();
+      ctx.arc(s/2, s/2, s/2, 0, Math.PI * 2);
+      ctx.fillStyle = '#0a0e1a';
+      ctx.fill();
+
+      // Outer ring
+      ctx.beginPath();
+      ctx.arc(s/2, s/2, s * 0.45, 0, Math.PI * 2);
+      ctx.strokeStyle = '#00d4ff';
+      ctx.lineWidth = Math.max(1, s * 0.06);
+      ctx.stroke();
+
+      // Shield shape
+      const cx = s / 2;
+      const cy = s / 2;
+      const sw = s * 0.35;
+      const sh = s * 0.4;
+
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - sh * 0.5);
+      ctx.lineTo(cx + sw * 0.5, cy - sh * 0.3);
+      ctx.lineTo(cx + sw * 0.5, cy + sh * 0.15);
+      ctx.quadraticCurveTo(cx, cy + sh * 0.55, cx, cy + sh * 0.55);
+      ctx.quadraticCurveTo(cx, cy + sh * 0.55, cx - sw * 0.5, cy + sh * 0.15);
+      ctx.lineTo(cx - sw * 0.5, cy - sh * 0.3);
+      ctx.closePath();
+
+      ctx.fillStyle = '#00d4ff';
+      ctx.fill();
+
+      // Inner checkmark or "C" letter
+      if (s >= 48) {
+        ctx.font = `bold ${s * 0.25}px sans-serif`;
+        ctx.fillStyle = '#0a0e1a';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('C', cx, cy + s * 0.02);
+      }
+    }
+
+    drawIcon('c16');
+    drawIcon('c48');
+    drawIcon('c128');
+
+    function download(canvasId, filename) {
+      const canvas = document.getElementById(canvasId);
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+  </script>
+</body>
+</html>
