@@ -1,0 +1,522 @@
+[
+  {
+    "term": "Residual Risk",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The level of risk that remains after security controls and risk treatment measures have been applied.",
+    "examTip": "No control removes all risk; if some risk remains after mitigation, that is residual risk.",
+    "relatedCards": ["Risk Treatment", "Risk Mitigation", "Risk Acceptance", "Control"],
+    "tags": ["risk", "treatment", "analysis"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Inherent Risk",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The level of risk that exists before any controls or safeguards are applied.",
+    "examTip": "Inherent risk is the raw exposure before mitigation; residual risk is what remains after controls.",
+    "relatedCards": ["Residual Risk", "Risk Assessment", "Risk", "Control"],
+    "tags": ["risk", "assessment", "foundations"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Deterrent Control",
+    "domain": "Security Assessment and Testing",
+    "type": "definition",
+    "answer": "A control intended to discourage a potential attacker from attempting a harmful action.",
+    "examTip": "Warning signs, visible cameras, and security lighting are classic deterrent controls.",
+    "relatedCards": ["Control Categories", "Control", "CCTV", "Physical Security Controls"],
+    "tags": ["controls", "classification", "preventive"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Corrective Control",
+    "domain": "Security Assessment and Testing",
+    "type": "definition",
+    "answer": "A control designed to fix or restore a system after an adverse event or control failure.",
+    "examTip": "If the measure helps repair or return a system to normal, think corrective control.",
+    "relatedCards": ["Control Categories", "Recovery", "Patch Management", "Incident Response"],
+    "tags": ["controls", "classification", "recovery"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Recovery Control",
+    "domain": "Security Assessment and Testing",
+    "type": "definition",
+    "answer": "A control that helps restore systems, operations, or data after an incident or disruption.",
+    "examTip": "Backups and disaster recovery capabilities are common recovery controls.",
+    "relatedCards": ["Control Categories", "Backup", "Disaster Recovery Plan (DRP)", "Availability"],
+    "tags": ["controls", "classification", "resilience"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Qualitative Risk Analysis",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A risk analysis approach that uses descriptive ratings such as low, medium, and high instead of precise monetary values.",
+    "examTip": "If the exam scenario uses ranking or judgment rather than formulas, it is likely qualitative analysis.",
+    "relatedCards": ["Quantitative Risk Analysis", "Risk Assessment", "Likelihood", "Impact"],
+    "tags": ["risk", "assessment", "analysis"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Quantitative Risk Analysis",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "A risk analysis approach that uses numerical values and calculations to estimate loss and likelihood.",
+    "examTip": "ALE, SLE, ARO, and exposure factor are classic quantitative risk concepts.",
+    "relatedCards": ["Annualized Loss Expectancy (ALE)", "Single Loss Expectancy (SLE)", "Annualized Rate of Occurrence (ARO)", "Exposure Factor"],
+    "tags": ["risk", "assessment", "quantitative"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Data Retention",
+    "domain": "Asset Security",
+    "type": "definition",
+    "answer": "The policy and practice of keeping data for a defined period to meet business, legal, regulatory, or operational requirements.",
+    "examTip": "Retention defines how long data must be kept; sanitization and disposal happen after retention requirements are satisfied.",
+    "relatedCards": ["Data Lifecycle", "Media Disposal", "Compliance", "Data Classification"],
+    "tags": ["asset-security", "data-governance", "lifecycle"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Data Minimization",
+    "domain": "Asset Security",
+    "type": "definition",
+    "answer": "The practice of collecting, processing, and retaining only the minimum data necessary for a specific purpose.",
+    "examTip": "If the best answer is to reduce exposure by storing less information, think data minimization.",
+    "relatedCards": ["Sensitive Data", "Data Retention", "Need to Know", "Confidentiality"],
+    "tags": ["asset-security", "privacy", "data-protection"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Privacy",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "The protection of personal information and the rights of individuals regarding how their data is collected, used, shared, and retained.",
+    "examTip": "Privacy focuses on proper handling of personal data, while confidentiality focuses on restricting unauthorized disclosure more broadly.",
+    "relatedCards": ["Confidentiality", "Compliance", "Sensitive Data", "Data Minimization"],
+    "tags": ["governance", "privacy", "compliance"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Privacy by Design",
+    "domain": "Security and Risk Management",
+    "type": "definition",
+    "answer": "An approach that incorporates privacy protections into systems, processes, and products from the beginning rather than adding them later.",
+    "examTip": "Like secure by design, privacy by design means building protections in early, not bolting them on after deployment.",
+    "relatedCards": ["Privacy", "Data Minimization", "Secure Software Development Lifecycle (SSDLC)", "Compliance"],
+    "tags": ["privacy", "governance", "design"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Zero Trust",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "A security model based on the principle that no user, device, or connection should be implicitly trusted, even if it is inside the network perimeter.",
+    "examTip": "Zero Trust emphasizes continuous verification, least privilege, and segmentation rather than assuming internal traffic is safe.",
+    "relatedCards": ["Least Privilege", "Segmentation", "Authentication", "Access Control"],
+    "tags": ["architecture", "modern-security", "trust"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Microsegmentation",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A granular segmentation approach that creates fine-grained security boundaries between workloads, applications, or systems.",
+    "examTip": "If the goal is to limit lateral movement at a very detailed level inside a data center or cloud, think microsegmentation.",
+    "relatedCards": ["Segmentation", "Network Segmentation", "Zero Trust", "Firewall"],
+    "tags": ["network-security", "segmentation", "containment"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Endpoint Detection and Response (EDR)",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "A security capability that monitors endpoint activity to detect suspicious behavior, investigate incidents, and support rapid response.",
+    "examTip": "EDR focuses on endpoint visibility and response, not just basic prevention like traditional antivirus.",
+    "relatedCards": ["Incident Response", "SIEM", "Anomaly-Based Detection", "Security Operations"],
+    "tags": ["operations", "endpoints", "detection"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Security Orchestration, Automation, and Response (SOAR)",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "A set of technologies and workflows that automate security tasks, coordinate tools, and streamline incident response actions.",
+    "examTip": "If the question is about automating triage, enrichment, or response playbooks, think SOAR.",
+    "relatedCards": ["SIEM", "Incident Response", "Security Operations", "Logging"],
+    "tags": ["operations", "automation", "incident-management"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Mean Time to Detect (MTTD)",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "The average amount of time it takes an organization to identify that a security incident has occurred.",
+    "examTip": "Lower MTTD means faster detection and usually less overall damage.",
+    "relatedCards": ["Incident Response", "SIEM", "Mean Time to Respond (MTTR)", "Security Operations"],
+    "tags": ["operations", "metrics", "detection"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Mean Time to Respond (MTTR)",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "The average amount of time it takes to contain, remediate, or recover from a security incident after detection.",
+    "examTip": "MTTR is about response speed after detection; do not confuse it with MTTD.",
+    "relatedCards": ["Mean Time to Detect (MTTD)", "Incident Response", "Recovery Time Objective (RTO)", "Security Operations"],
+    "tags": ["operations", "metrics", "response"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Whitelisting",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "A security approach that allows only explicitly approved applications, commands, or entities to run or connect.",
+    "examTip": "Whitelisting is restrictive and can be very effective for reducing unauthorized execution.",
+    "relatedCards": ["Least Privilege", "Hardening", "Configuration Management", "Attack Surface"],
+    "tags": ["operations", "hardening", "allow-listing"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Hardening",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "The process of reducing system attack surface by disabling unnecessary services, removing defaults, and applying secure configurations.",
+    "examTip": "Hardening usually means fewer services, fewer privileges, and fewer opportunities for compromise.",
+    "relatedCards": ["Configuration Management", "Baseline", "Patch Management", "Attack Surface"],
+    "tags": ["operations", "configuration", "defense"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Allow List",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "A list of approved entities such as applications, IP addresses, or commands that are permitted by default while others are denied.",
+    "examTip": "Allow list is the modern preferred term for whitelisting in many organizations.",
+    "relatedCards": ["Whitelisting", "Access Control List (ACL)", "Firewall", "Least Privilege"],
+    "tags": ["operations", "access-control", "configuration"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Block List",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "A list of prohibited entities such as applications, addresses, or senders that are denied while all others may be permitted.",
+    "examTip": "Block lists are useful, but allow lists are typically stronger when strict control is needed.",
+    "relatedCards": ["Allow List", "Firewall", "Email Security", "Access Control List (ACL)"],
+    "tags": ["operations", "access-control", "filtering"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Vulnerability Management",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "An ongoing process of identifying, assessing, prioritizing, remediating, and monitoring vulnerabilities in systems and applications.",
+    "examTip": "Scanning is only one part; vulnerability management also includes prioritization, remediation, and validation.",
+    "relatedCards": ["Vulnerability Scanning", "Patch Management", "Risk Assessment", "Configuration Management"],
+    "tags": ["operations", "vulnerability-management", "process"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Security Baseline",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "A documented minimum set of security configuration requirements for systems, applications, or devices.",
+    "examTip": "A security baseline defines the approved starting point for secure configuration and compliance checks.",
+    "relatedCards": ["Baseline", "Configuration Management", "Hardening", "Control Assessment"],
+    "tags": ["operations", "configuration", "standards"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Dynamic Analysis",
+    "domain": "Software Development Security",
+    "type": "definition",
+    "answer": "The testing and examination of software while it is running in order to identify vulnerabilities and unsafe behavior.",
+    "examTip": "Static analysis reviews code without execution; dynamic analysis observes the application during runtime.",
+    "relatedCards": ["Static Analysis", "Code Review", "Web Application Security", "Secure Software Development Lifecycle (SSDLC)"],
+    "tags": ["software-security", "testing", "runtime"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Fuzz Testing",
+    "domain": "Software Development Security",
+    "type": "definition",
+    "answer": "A testing technique that feeds unexpected, malformed, or random input into software to uncover crashes, errors, or vulnerabilities.",
+    "examTip": "Fuzzing is especially good at finding input-handling problems and parser weaknesses.",
+    "relatedCards": ["Input Validation", "Dynamic Analysis", "Buffer Overflow", "Secure Coding"],
+    "tags": ["software-security", "testing", "vulnerabilities"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Dependency Management",
+    "domain": "Software Development Security",
+    "type": "definition",
+    "answer": "The process of tracking, updating, and controlling third-party libraries and components used by software.",
+    "examTip": "If the risk comes from outdated open-source packages, dependency management is the likely issue.",
+    "relatedCards": ["Patch Management", "Software Composition Analysis", "Secure Software Development Lifecycle (SSDLC)", "Supply Chain Risk"],
+    "tags": ["software-security", "supply-chain", "maintenance"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Software Composition Analysis",
+    "domain": "Software Development Security",
+    "type": "definition",
+    "answer": "A process or toolset used to identify third-party software components, licenses, and known vulnerabilities in an application.",
+    "examTip": "SCA is used to find vulnerable dependencies and open-source risk inside software projects.",
+    "relatedCards": ["Dependency Management", "Secure Software Development Lifecycle (SSDLC)", "Vulnerability Management", "Supply Chain Risk"],
+    "tags": ["software-security", "supply-chain", "analysis"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Secure Defaults",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "A design principle in which systems are configured in a secure state by default and require deliberate action to reduce protections.",
+    "examTip": "If the safest answer is that the product should start locked down, think secure defaults.",
+    "relatedCards": ["Fail Secure", "Security Design Principles", "Hardening", "Least Privilege"],
+    "tags": ["architecture", "design-principles", "configuration"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Economy of Mechanism",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "A design principle stating that security mechanisms should be as simple and small as possible to reduce errors and improve assurance.",
+    "examTip": "Simple designs are easier to review, test, and trust than overly complex ones.",
+    "relatedCards": ["Open Design", "Reference Monitor", "Security Design Principles", "Least Common Mechanism"],
+    "tags": ["architecture", "design-principles", "simplicity"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Complete Mediation",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "A design principle requiring that every access to every object be checked for authorization.",
+    "examTip": "Do not assume that prior approval still applies; complete mediation means checking each access attempt.",
+    "relatedCards": ["Reference Monitor", "Access Control", "Authorization", "Security Design Principles"],
+    "tags": ["architecture", "access-control", "design-principles"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Work Factor",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "The amount of effort and resources required for an attacker to defeat a security control.",
+    "examTip": "A good control increases attacker effort enough that the attack becomes impractical or uneconomical.",
+    "relatedCards": ["Defense in Depth", "Risk Mitigation", "Control", "Encryption"],
+    "tags": ["architecture", "design-principles", "risk"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Single Point of Failure (SPOF)",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "A component or dependency whose failure would cause an entire system or service to fail.",
+    "examTip": "If availability is at risk because one device or process has no backup, that is a single point of failure.",
+    "relatedCards": ["Availability", "Fault Tolerance", "Disaster Recovery Plan (DRP)", "Defense in Depth"],
+    "tags": ["architecture", "availability", "resilience"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Fault Tolerance",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "The ability of a system to continue operating properly even when one or more components fail.",
+    "examTip": "Fault tolerance supports availability by using redundancy and eliminating single points of failure.",
+    "relatedCards": ["Availability", "Single Point of Failure (SPOF)", "Failover", "Disaster Recovery Plan (DRP)"],
+    "tags": ["architecture", "availability", "resilience"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Failover",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "The automatic or manual switching to a redundant system, component, or path when the primary one fails.",
+    "examTip": "Failover is a practical availability mechanism often used in clustered or redundant environments.",
+    "relatedCards": ["Fault Tolerance", "Availability", "Recovery Time Objective (RTO)", "Single Point of Failure (SPOF)"],
+    "tags": ["architecture", "availability", "recovery"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Redundancy",
+    "domain": "Security Architecture and Engineering",
+    "type": "definition",
+    "answer": "The duplication of critical components or functions to improve reliability and availability.",
+    "examTip": "Redundancy is a common availability answer, especially when the scenario involves hardware or connectivity failure.",
+    "relatedCards": ["Availability", "Fault Tolerance", "Failover", "Defense in Depth"],
+    "tags": ["architecture", "availability", "resilience"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Media Access Control (MAC) Address",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A hardware address assigned to a network interface for communication at the data link layer.",
+    "examTip": "Do not confuse a MAC address with Mandatory Access Control; one is networking and the other is an access control model.",
+    "relatedCards": ["Switch", "OSI Model", "IP Address", "Broadcast Domain"],
+    "tags": ["network-security", "addressing", "lan"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Router",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A network device that forwards packets between different networks based on IP addressing and routing information.",
+    "examTip": "Routers operate at Layer 3 and separate broadcast domains, unlike switches that primarily work at Layer 2.",
+    "relatedCards": ["IP Address", "OSI Model", "TCP/IP Model", "Access Control List (ACL)"],
+    "tags": ["network-security", "network-devices", "routing"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Subnet",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A logical subdivision of an IP network used to organize addressing and control traffic flow.",
+    "examTip": "Subnets help with segmentation and routing, but they do not enforce security by themselves.",
+    "relatedCards": ["IP Address", "Router", "Network Segmentation", "TCP/IP Model"],
+    "tags": ["network-security", "addressing", "segmentation"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Port Security",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A switch feature that restricts which devices can connect to a physical port, often based on MAC address rules.",
+    "examTip": "If the goal is to stop unauthorized devices from plugging into a switch port, think port security.",
+    "relatedCards": ["Switch", "Media Access Control (MAC) Address", "Physical Access Control", "Network Security"],
+    "tags": ["network-security", "switching", "access-control"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Network Access Control (NAC)",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A security approach that evaluates the identity and security posture of devices before allowing them onto a network.",
+    "examTip": "NAC is a strong answer when the problem is unmanaged or noncompliant devices connecting to the network.",
+    "relatedCards": ["Access Control", "Authentication", "Port Security", "Zero Trust"],
+    "tags": ["network-security", "access-control", "endpoints"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Denial of Service (DoS)",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "An attack that attempts to make a system, service, or network unavailable to legitimate users.",
+    "examTip": "If availability is the primary target, denial of service is often the attack type involved.",
+    "relatedCards": ["Availability", "Distributed Denial of Service (DDoS)", "Incident", "Network Security"],
+    "tags": ["network-security", "attacks", "availability"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Distributed Denial of Service (DDoS)",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "A denial-of-service attack launched from multiple compromised systems against a target to overwhelm its resources.",
+    "examTip": "DDoS is harder to block than a simple DoS because the traffic comes from many sources.",
+    "relatedCards": ["Denial of Service (DoS)", "Availability", "Incident Response", "Network Security"],
+    "tags": ["network-security", "attacks", "availability"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Replay Attack",
+    "domain": "Communication and Network Security",
+    "type": "definition",
+    "answer": "An attack in which valid data transmissions are captured and resent later to produce an unauthorized effect.",
+    "examTip": "Nonces, timestamps, and session protections are common defenses against replay attacks.",
+    "relatedCards": ["Authentication", "Kerberos", "Ticket", "Transport Layer Security (TLS)"],
+    "tags": ["network-security", "attacks", "authentication"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Time Synchronization",
+    "domain": "Security Operations",
+    "type": "definition",
+    "answer": "The process of keeping system clocks aligned so logs, authentication events, and forensic timelines remain accurate and comparable.",
+    "examTip": "If logs from different systems do not line up during an investigation, the missing control is often time synchronization.",
+    "relatedCards": ["Logging", "SIEM", "Audit Trail", "Forensic Investigation"],
+    "tags": ["operations", "logging", "forensics"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Account Review",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "A periodic process of evaluating user accounts, privileges, and entitlements to ensure access remains appropriate.",
+    "examTip": "Account reviews are a key control against privilege creep and orphaned access.",
+    "relatedCards": ["Privilege Creep", "Least Privilege", "Provisioning", "Authorization"],
+    "tags": ["iam", "governance", "review"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Deprovisioning",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "The process of removing or disabling accounts, access rights, and credentials when they are no longer authorized.",
+    "examTip": "If the user leaves the company or changes roles, prompt deprovisioning is the key control.",
+    "relatedCards": ["Provisioning", "Least Privilege", "Account Review", "Access Control"],
+    "tags": ["iam", "lifecycle", "administration"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Service Account",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "A non-human account used by an application, system, or service to perform automated functions.",
+    "examTip": "Service accounts should still follow least privilege and strong credential management even though they are not tied to a person.",
+    "relatedCards": ["Identity", "Least Privilege", "Authentication", "Privileged Account"],
+    "tags": ["iam", "accounts", "administration"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Privileged Account",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "An account with elevated permissions that can administer systems, change security settings, or access sensitive resources.",
+    "examTip": "Privileged accounts require tighter monitoring, stronger authentication, and stricter review than standard user accounts.",
+    "relatedCards": ["Least Privilege", "Privilege Escalation", "Account Review", "Multifactor Authentication (MFA)"],
+    "tags": ["iam", "accounts", "administration"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Password Manager",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "A tool that securely stores and helps generate passwords so users can maintain strong, unique credentials across systems.",
+    "examTip": "A password manager supports stronger password practices and reduces password reuse risk.",
+    "relatedCards": ["Password", "Authentication", "Multifactor Authentication (MFA)", "Hashing"],
+    "tags": ["iam", "authentication", "credentials"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Passphrase",
+    "domain": "Identity and Access Management (IAM)",
+    "type": "definition",
+    "answer": "A longer memorized secret made of multiple words or a sentence, used as an authentication factor.",
+    "examTip": "Passphrases are often easier to remember and can be stronger than short complex passwords.",
+    "relatedCards": ["Password", "Authentication", "Multifactor Authentication (MFA)", "Password Manager"],
+    "tags": ["iam", "authentication", "credentials"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Tokenization",
+    "domain": "Asset Security",
+    "type": "definition",
+    "answer": "A data protection method that replaces sensitive data with a non-sensitive token that has no exploitable meaning on its own.",
+    "examTip": "Tokenization reduces exposure of sensitive data and is not the same as encryption because the original value is usually stored separately in a token vault.",
+    "relatedCards": ["Sensitive Data", "Encryption", "Confidentiality", "Data Minimization"],
+    "tags": ["asset-security", "data-protection", "privacy"],
+    "contributor": "GPT 5.4"
+  },
+  {
+    "term": "Masking",
+    "domain": "Asset Security",
+    "type": "definition",
+    "answer": "A technique that obscures all or part of a data value to limit exposure while preserving usability.",
+    "examTip": "If users need to see only part of a value, such as the last four digits, masking is often the right answer.",
+    "relatedCards": ["Sensitive Data", "Tokenization", "Confidentiality", "Data Classification"],
+    "tags": ["asset-security", "data-protection", "privacy"],
+    "contributor": "GPT 5.4"
+  }
+]
